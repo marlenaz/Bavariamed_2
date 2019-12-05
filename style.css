@@ -111,8 +111,9 @@ nav {
 .logo img {
   max-width: 600px;
   width: 100%;
+  transition: max-width 1s;
 }
-.top-nav-content .nav-contact {
+.nav-contact {
   flex: 1;
 }
 .nav-contact h2,
@@ -121,15 +122,67 @@ nav {
 }
 .nav-contact h2 {
   font-size: 1.8rem;
+  display: block;
 }
 .nav-contact-box {
   display: flex;
   margin-top: 0.5rem;
+  margin-right: 20px;
 }
 .nav-contact-box i {
-  margin-right: 10px;
+  margin-right: 5px;
   color: #00a5ff;
 }
+/* on scroll top nav */
+.invisible {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.invisible.halfVisible {
+  opacity: 1;
+}
+.invisible.toVisible {
+  display: flex;
+  justify-content: flex-end;
+}
+.invisible .nav-contact-box-container {
+  display: flex;
+}
+.visible {
+  opacity: 1;
+  transition: opacity 1s;
+}
+.visible.halfInvisible {
+  opacity: 0;
+}
+.visible.toInvisible {
+  display: none;
+}
+nav.fixed-nav {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.fixed-nav .logo img {
+  max-width: 300px;
+}
+/* .fade {
+  opacity: 1;
+  transition: opacity 1s;
+}
+.fixed-nav .fade {
+  opacity: 0;
+} */
+.fixed-nav .top-nav-content {
+  padding: 4px 1%;
+}
+header.fixed-nav {
+  padding-top: 140px;
+}
+/* .undisplay .fade {
+  display: none;
+} */
 
 /* bottom nav */
 nav .bot-nav {
@@ -140,7 +193,9 @@ nav .bot-nav {
 }
 .bot-nav li {
   color: white;
+  font-family: 'Exo 2', sans-serif;
   font-size: 1.1rem;
+  letter-spacing: 1px;
   padding: 1%;
   text-align: center;
   text-transform: uppercase;
@@ -167,14 +222,14 @@ Header style
   bottom: 2px;
 }
 .page-header .header-title {
-  background-color: #2a3f6f3d;
   text-align: center;
-  padding: 1% 0;
+  padding: 4% 0;
 }
 .header-title h1 {
   color: white;
-  font-family: 'Baloo Bhai', cursive;
-  font-size: 4.2rem;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 4.4rem;
+  font-weight: 700;
   line-height: 1.1;
   text-shadow: 0 3px 5px rgba(0, 0, 0, 0.64);
   text-transform: uppercase;
