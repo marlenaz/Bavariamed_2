@@ -2,28 +2,20 @@ const navOnScroll =(() => {
   window.onscroll = () => {
     console.log("działa");
     toggleNavClass();
-    toggleContactClass();
   }
   const toggleNavClass = () => {
-    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
-      document.getElementById("nav").className="fixed-nav";
-      document.querySelector("header").className="fixed-nav";
-      document.querySelector(".visible").classList.add("halfInvisible");
-      document.querySelector(".invisible").classList.add("halfVisible");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      document.querySelector("header").className="fixed";
+      document.querySelector(".top-nav").classList.add("invisible");
+      document.querySelector(".bot-nav").classList.add("fixed");
+      document.querySelector(".logo-xs").classList.remove("invisible");
+      document.querySelector(".logo-xs").classList.add("flex-align-center");
     } else {
-      document.getElementById("nav").className="";
       document.querySelector("header").className="";
-      document.querySelector(".visible").classList.remove("halfInvisible");
-      document.querySelector(".invisible").classList.remove("halfVisible");
-    }
-  }
-  const toggleContactClass = () => {
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-      document.querySelector(".visible").classList.add("toInvisible");
-      document.querySelector(".invisible").classList.add("toVisible");
-    } else {
-      document.querySelector(".visible").classList.remove("toInvisible");
-      document.querySelector(".invisible").classList.remove("toVisible");
+      document.querySelector(".top-nav").classList.remove("invisible");
+      document.querySelector(".bot-nav").classList.remove("fixed");
+      document.querySelector(".logo-xs").classList.add("invisible");
+      document.querySelector(".logo-xs").classList.remove("flex-align-center");
     }
   }
 })();
